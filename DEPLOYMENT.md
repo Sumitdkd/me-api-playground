@@ -2,32 +2,31 @@
 
 ## Current Status
 - ✅ **Frontend Deployed**: https://me-api-playground-1ste.vercel.app/
-- ⏳ **Backend**: Needs to be deployed
+- ✅ **Backend Deployed**: https://me-api-playground-8hiu.onrender.com
+- 🔄 **Connection**: Ready to connect
 
-## Deploy Backend to Vercel
+## ✅ Backend Already Deployed on Render
 
-### Step 1: Deploy Backend
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Click "New Project"
-3. Import this GitHub repository: `https://github.com/Sumitdkd/me-api-playground`
-4. **Important**: Set the Root Directory to `backend`
-5. Add Environment Variables in Vercel:
-   ```
-   MONGO_URI=mongodb+srv://ivar01010011_db_user:nXSy0EMekSzNLgTN@cluster0.vdfvmvt.mongodb.net/me-api
-   PORT=3001
-   NODE_ENV=production
-   ```
-6. Deploy
+Your backend is successfully deployed at: **https://me-api-playground-8hiu.onrender.com**
 
-### Step 2: Update Frontend Environment Variable
-Once your backend is deployed (let's say it gets URL: `https://your-backend-abc123.vercel.app`):
+### Update Frontend to Connect to Backend
 
-1. Go to your frontend Vercel project settings
-2. Add/Update Environment Variable:
+1. Go to your Vercel frontend project: `me-api-playground-1ste`
+2. Go to Settings → Environment Variables  
+3. Add/Update Environment Variable:
    ```
-   VITE_API_BASE_URL=https://your-backend-abc123.vercel.app/api
+   Name: VITE_API_BASE_URL
+   Value: https://me-api-playground-8hiu.onrender.com/api
    ```
-3. Redeploy frontend
+4. Redeploy your frontend
+
+### Alternative: Quick Test Locally
+```bash
+cd frontend
+# Temporarily update .env for testing
+echo "VITE_API_BASE_URL=https://me-api-playground-8hiu.onrender.com/api" > .env
+npm run dev
+```
 
 ### Step 3: Test Connection
 Visit your frontend and check:
@@ -55,29 +54,38 @@ npx vercel --prod
 
 ## Environment Variables Summary
 
-### Backend (.env in Vercel)
+### Backend (Deployed on Render)
 ```env
-MONGO_URI=mongodb+srv://ivar01010011_db_user:nXSy0EMekSzNLgTN@cluster0.vdfvmvt.mongodb.net/me-api
-PORT=3001
-NODE_ENV=production
+✅ Already deployed at: https://me-api-playground-8hiu.onrender.com
 ```
 
-### Frontend (.env in Vercel)
+### Frontend (Environment Variable for Vercel)
 ```env
-VITE_API_BASE_URL=https://your-backend-url.vercel.app/api
+VITE_API_BASE_URL=https://me-api-playground-8hiu.onrender.com/api
 ```
 
 ## Testing Deployment
 
 ### Backend Health Check
 ```bash
-curl https://your-backend-url.vercel.app/api/health
+curl https://me-api-playground-8hiu.onrender.com/api/health
+```
+
+**Expected Response:**
+```json
+{
+  "status": "ok", 
+  "uptime": 343.478202798,
+  "timestamp": "2025-08-30T19:35:53.874Z",
+  "service": "Me-API Playground"
+}
 ```
 
 ### Frontend API Connection
 Open browser dev tools on your frontend and check for API calls.
 
 ## Current Configuration
-- Frontend URL: https://me-api-playground-1ste.vercel.app/
-- Backend URL: To be deployed
-- GitHub Repo: https://github.com/Sumitdkd/me-api-playground
+- ✅ Frontend URL: https://me-api-playground-1ste.vercel.app/
+- ✅ Backend URL: https://me-api-playground-8hiu.onrender.com
+- ✅ GitHub Repo: https://github.com/Sumitdkd/me-api-playground
+- 🔄 **Next**: Connect frontend to backend via environment variable
