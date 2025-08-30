@@ -45,7 +45,7 @@ const Navbar = () => {
               }`}
             >
               <span className="flex items-center gap-2">
-                
+                <span className="text-lg">🏠</span>
                 <span>Home</span>
               </span>
             </Link>
@@ -59,14 +59,14 @@ const Navbar = () => {
               }`}
             >
               <span className="flex items-center gap-2">
-                
+                <span className="text-lg">👤</span>
                 <span>Profile</span>
               </span>
             </Link>
             
             {/* Health Check Link */}
             <a
-              href="http://localhost:3001/api/health"
+              href={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api'}/health`}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors duration-200 text-xs text-slate-600 font-medium"
@@ -137,7 +137,7 @@ const Navbar = () => {
             
             {/* Mobile Health Check Link */}
             <a
-              href="http://localhost:3001/api/health"
+              href={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api'}/health`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-4 py-3 bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors duration-200 text-xs text-slate-600 font-medium"

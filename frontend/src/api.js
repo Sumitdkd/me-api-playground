@@ -1,12 +1,8 @@
 import axios from 'axios';
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 // Create axios instance with backend base URL
 const api = axios.create({
-  baseURL:process.env.baseURL
-  ,
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
